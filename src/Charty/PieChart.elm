@@ -117,7 +117,6 @@ preprocess : Config -> Dataset -> List Slice
 preprocess config dataset =
     dataset
         |> normalize
-        |> List.sortBy (\{ value } -> -value)
         |> truncate config.maxGroupCount
         |> config.colorAssignment
         |> List.map
